@@ -257,14 +257,13 @@ MainApp.prototype.nextQuestion = function() {
 	
 };
 MainApp.prototype.timerenable = function(index) {
-	console.log('call from timerenable');
 	var self = this;
 	if (MASTER_DB.GROUPMODE.ALLOWGROUPS && MASTER_DB.GROUPMODE.TIMEEACHQUESTION) {
 		console.log(1);
 		var self = this;
 		$('.slider').val(0);
 		timer = new Timer();
-		timer.start({precision: 'seconds', startValues: {seconds: 0}, target: {seconds: MASTER_DB.GROUPMODE.TIMEPERQUESTION}});
+		timer.start({countdown: true, precision: 'seconds', startValues: {seconds: MASTER_DB.GROUPMODE.TIMEPERQUESTION}});
 		$('#app-count_down .values').html(timer.getTimeValues().toString());
 		timer.addEventListener('secondsUpdated', function (e) {
 		    $('#app-count_down').html(timer.getTimeValues().toString());
@@ -356,7 +355,7 @@ MainApp.prototype.timerenable = function(index) {
 		var self = this;
 		$('.slider').val(0);
 		timer = new Timer();
-		timer.start({precision: 'seconds', startValues: {seconds: 0}, target: {seconds: MASTER_DB.TIMER.TOTALTIME}});
+		timer.start({countdown: true, precision: 'seconds', startValues: {seconds: MASTER_DB.TIMER.TOTALTIME}});
 		$('#app-count_down .values').html(timer.getTimeValues().toString());
 		timer.addEventListener('secondsUpdated', function (e) {
 		    $('#app-count_down').html(timer.getTimeValues().toString());
@@ -464,7 +463,7 @@ MainApp.prototype.loadQuestion = function(index) {
 	if (MASTER_DB.GROUPMODE.ALLOWGROUPS && MASTER_DB.GROUPMODE.TIMEEACHQUESTION) {
 		if (index == 0) {
 			timer = new Timer();
-			timer.start({precision: 'seconds', startValues: {seconds: 0}, target: {seconds: MASTER_DB.GROUPMODE.TIMEPERQUESTION}});
+			timer.start({countdown: true, precision: 'seconds', startValues: {seconds: MASTER_DB.GROUPMODE.TIMEPERQUESTION}});
 			$('#app-count_down .values').html(timer.getTimeValues().toString());
 			timer.addEventListener('secondsUpdated', function (e) {
 			    $('#app-count_down .values').html(timer.getTimeValues().toString());
@@ -473,7 +472,7 @@ MainApp.prototype.loadQuestion = function(index) {
 	} else if (MASTER_DB.GROUPMODE.ALLOWGROUPS && !MASTER_DB.GROUPMODE.TIMEEACHQUESTION && MASTER_DB.TIMER.ALLOWTIMER && MASTER_DB.TIMER.TOTALTIME && (MASTER_DB.TIMER.TIMERFOR == "activity")) {
 		if (index == 0) {
 			timer = new Timer();
-			timer.start({precision: 'seconds', startValues: {seconds: 0}, target: {seconds: MASTER_DB.TIMER.TOTALTIME}});
+			timer.start({countdown: true, precision: 'seconds', startValues: {seconds: MASTER_DB.TIMER.TOTALTIME}});
 			$('#app-count_down .values').html(timer.getTimeValues().toString());
 			timer.addEventListener('secondsUpdated', function (e) {
 			    $('#app-count_down .values').html(timer.getTimeValues().toString());
@@ -484,7 +483,7 @@ MainApp.prototype.loadQuestion = function(index) {
 	} else if (!MASTER_DB.GROUPMODE.ALLOWGROUPS && MASTER_DB.TIMER.ALLOWTIMER && MASTER_DB.TIMER.TIMERFOR == "activity"){
 		if (index == 0) {
 			timer = new Timer();
-			timer.start({precision: 'seconds', startValues: {seconds: 0}, target: {seconds: MASTER_DB.TIMER.TOTALTIME}});
+			timer.start({countdown: true, precision: 'seconds', startValues: {seconds: MASTER_DB.TIMER.TOTALTIME}});
 			$('#app-count_down .values').html(timer.getTimeValues().toString());
 			timer.addEventListener('secondsUpdated', function (e) {
 			    $('#app-count_down .values').html(timer.getTimeValues().toString());
@@ -495,7 +494,7 @@ MainApp.prototype.loadQuestion = function(index) {
 	} else if (!MASTER_DB.GROUPMODE.ALLOWGROUPS && MASTER_DB.TIMER.ALLOWTIMER && MASTER_DB.TIMER.TIMERFOR == "question"){
 		if (index == 0) {
 			timer = new Timer();
-			timer.start({precision: 'seconds', startValues: {seconds: 0}, target: {seconds: MASTER_DB.TIMER.TOTALTIME}});
+			timer.start({countdown: true, precision: 'seconds', startValues: {seconds: MASTER_DB.TIMER.TOTALTIME}});
 			$('#app-count_down .values').html(timer.getTimeValues().toString());
 			timer.addEventListener('secondsUpdated', function (e) {
 			    $('#app-count_down .values').html(timer.getTimeValues().toString());
