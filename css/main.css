@@ -1068,4 +1068,7 @@ input[type=number]
         width: 70px;
         bottom: 18px;
     }
+    #group_score_button {
+        margin: 2px 0px 0px 0px;
+    }
 }
